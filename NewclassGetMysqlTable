@@ -1,0 +1,52 @@
+package com.test;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.sql.ConnectionEvent;
+
+public class RegisterBean {
+	static RegisterBean[] rbg;
+	String adi;
+	String soyadi;
+	String adresi;
+	public String getAdi() {
+		return adi;
+	}
+	public void setAdi(String adi) {
+		this.adi = adi;
+	}
+	public String getSoyadi() {
+		return soyadi;
+	}
+	public void setSoyadi(String soyadi) {
+		this.soyadi = soyadi;
+	}
+	public String getAdresi() {
+		return adresi;
+	}
+	public void setAdresi(String adresi) {
+		this.adresi = adresi;
+	
+		
+
+	try {
+		 rbg =new RegisterBean[10];
+		Statement statement = null;
+		ResultSet result = statement.executeQuery("SELECT * from sinem.COMMENTS");
+		int i=0;
+		while(result.next()) {
+		   rbg[i].setAdi(result.getString("myuser"));
+		   rbg[i].setAdi(result.getString("email"));
+		   rbg[i].setAdi(result.getString("webpage"));
+		    i++;
+		
+		}
+		}
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  }
+	}
